@@ -178,6 +178,9 @@
                         <div id="addor"><i class="bi-2 bi-buildings-fill"></i>  Add New Organization</div>
                     </li>
                     <li>
+                        <div id="addtask"><i class="bi-2 bi-list-task"></i>  Add New Task</div>
+                    </li>
+                    <li>
                         <div><i class="bi-2 bi-envelope-fill"></i>  Send Email</div>
                     </li>
                     <li>
@@ -206,6 +209,9 @@
                 </div>
                 <div class="sub-menu">
                     <a href="organization.html"><input type="button" class="home" value="Organization"></a>
+                </div>
+                <div class="sub-menu">
+                    <a href="task.html"><input type="button" class="home" value="Task"></a>
                 </div>
                 <div class="sub-menu">
                     <a href="#"><input type="button" class="home" value="Email"></a>
@@ -385,19 +391,128 @@
                 </div>
             </form>
         </div>
+        
+        <div id="myModa" class="modal">
+            <span class="close" id="closeModal2">&times;</span>
+            
+            <h2 align="center">Add New Organization</h2><br>
+            <form id="OrgForm">
+                
+                <div class="textarea">
+                    <label for="fname">Organization Name</label>
+                    <input type="text" id="oname" name="oname" placeholder="Enter Organization Name" required>
+                </div>
+                
+                <div class="textarea">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="Enter Email" required>
+                </div>
+                
+                <div class="textarea">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+        
+                <div class="textarea">
+                    <label for="phone">Phone No.</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter Phone No" required>
+                </div>
+                
+                <div class="textarea">
+                    <label for="linkedin">LinkedIn</label>
+                    <input type="text" id="linkedin" name="linkedin" placeholder="Enter LinkedIn Profile">
+                </div>
+    
+                <div class="textarea">
+                    <label for="fb">Facebook</label>
+                    <input type="text" id="fb" name="fb" placeholder="Enter Facebook Profile">
+                </div>
+    
+                <div class="textarea">
+                    <label for="twit">Twitter</label>
+                    <input type="text" id="twit" name="twit" placeholder="Enter Twitter Profile">
+                </div>
+    
+                <div class="textarea">
+                    <label for="address">Address</label>
+                    <textarea id="address" name="address" placeholder=" Enter Address" required></textarea>
+                </div>
+                
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    
+                    <button type="button" class="btn btn-outline-primary" id="saveAndNew2">Save & New</button>
+                    <button type="submit" class="btn btn-outline-success btn-lg">Save</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="myMod" class="modal">
+            <span class="close" id="closeModal3">&times;</span>
+            
+            <h2 align="center">Add New Task</h2><br>
+            <form id="TaskForm">
+                
+                <div class="textarea">
+                    <label for="fname">Task Name</label>
+                    <input type="text" id="tname" name="tname" placeholder="Enter Task Name" required>
+                </div>
+
+                <div class="textarea">
+                    <label for="fname">Assigned To</label>
+                    <input type="text" id="aname" name="aname" placeholder="Enter Name" required>
+                </div>
+                
+                <div class="textarea">
+                    <label for="dob">Start Date</label>
+                    <input type="date" id="sdob" name="dob" required>
+                </div>
+                
+                <div class="textarea">
+                    <label for="dob">Due Date</label>
+                    <input type="date" id="ddob" name="dob" required>
+                </div>
+                
+                <div class="textarea">
+                    <label for="fname">Priority</label>
+                    <input type="number" id="pri" name="pri" placeholder="Enter Priority" required>
+                </div>
+
+                <div class="textarea">
+                    <label for="fname">Progress</label>
+                    <input type="number" id="com" name="com" placeholder="Enter Percentage Completed" required>
+                </div>
+
+                <div class="textarea">
+                    <label for="fname">Status</label>
+                    <input type="text" id="sta" name="sta" placeholder="Enter Status" required>
+                </div>
+                
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    
+                    <button type="button" class="btn btn-outline-primary" id="saveAndNew3">Save & New</button>
+                    <button type="submit" class="btn btn-outline-success btn-lg">Save</button>
+                </div>
+            </form>
+        </div>
+
         <script>
             const modal = document.getElementById('myModal');
             const moda = document.getElementById('myModa');
+            const mod = document.getElementById('myMod');
             const closeModal1 = document.getElementById('closeModal1');
             const closeModal2 = document.getElementById('closeModal2');
+            const closeModal3 = document.getElementById('closeModal3');
             const contactForm = document.getElementById('contactForm');
             const OrganizationForm = document.getElementById('OrgForm');
+            const TaskForm = document.getElementById('TaskForm');
             const saveAndNewButton1 = document.getElementById('saveAndNew1');
             const saveAndNewButton2 = document.getElementById('saveAndNew2');
+            const saveAndNewButton3 = document.getElementById('saveAndNew3');
             const addContactButton = document.getElementById('addContact');
             const addContactLi = document.getElementById('addcont');
             const addorgLi = document.getElementById('addor');
-    
+            const addtaskLi = document.getElementById('addtask');
+
             function openModal1() {
                 modal.style.display = 'block';
             }
@@ -413,7 +528,15 @@
             function closeModalFunction2() {
                 moda.style.display = 'none';
             }
+            
+            function openModal3() {
+                mod.style.display = 'block';
+            }
     
+            function closeModalFunction3() {
+                mod.style.display = 'none';
+            }
+
             function validateForm1(event) {
                 const firstName = document.getElementById('fname').value;
                 const lastName = document.getElementById('lname').value;
@@ -481,6 +604,20 @@
                     event.preventDefault(); 
                 }
             }
+            function validateForm3(event) {
+                const tName = document.getElementById('tname').value;
+                const aName = document.getElementById('aname').value;
+                const sdate = document.getElementById('sdob').value;
+                const ddate = document.getElementById('ddob').value;
+                const status = document.getElementById('sta').value;
+                
+    
+                if (!tName || !aName || !sdate || !ddate || !status) {
+                    alert('Please fill in all required fields.');
+                    event.preventDefault(); 
+                }
+                
+            }
             function isValidEmail(email) {
                 const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
                 return emailPattern.test(email);
@@ -495,6 +632,9 @@
             addorgLi.addEventListener('click', openModal2);
             closeModal2.addEventListener('click', closeModalFunction2);
             OrganizationForm.addEventListener('submit',validateForm2);
+            addtaskLi.addEventListener('click', openModal3);
+            closeModal3.addEventListener('click', closeModalFunction3);
+            TaskForm.addEventListener('submit',validateForm3);
             addContactButton.addEventListener('click', openModal1);
         </script>
 </body>
