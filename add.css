@@ -12,6 +12,20 @@
     width: 45%;
     height: 91%;
 }
+.info {
+  
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 2px solid #a39595;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  width: 45%;
+  height: 91%;
+}
 .close {
     position: absolute;
     top: 10px;
